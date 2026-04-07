@@ -1,0 +1,17 @@
+How to set up a local development server for live previewing of website during development.
+(Notes to my future self because I can never remember this crap.)
+
+
+---Using python---
+(A) Simple server (no auto-reload):
+Run in a command prompt: python -m http.server 8000
+
+(B) Auto-reload server:
+Run in a command prompt: python serve.py
+Then view website by opening in browser: http://localhost:8000
+
+
+---Using VS Code---
+Ensure you have the extension "Live Server" by Ritrick Dey installed.
+Open the project folder in VS Code.
+Right-click the index.html in Explorer → "Open with Live Server", or click the "Go Live" button in the status bar.

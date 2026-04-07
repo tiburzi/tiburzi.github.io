@@ -1,0 +1,145 @@
+:root {
+    --dur: 800ms;
+    --color-accent: #d60015;
+    --color-accent-soft: #dd6975;
+    --color-bg: #f2f2f2;
+    --color-base: #ccc;
+    --color-text: #9c9c9c;
+    --color-focused: #221616;
+}
+
+:root {
+    --w: 640px;
+    --h: 360px;
+    --dot-size: 12px;
+    --dot-selected-scale: 1.5;
+    /* 50% larger */
+    --dot-color: #ff6b6b;
+    --dot-bg: rgba(255, 255, 255, .35);
+    --duration: 450ms;
+}
+
+body,
+h2,
+h3 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0;
+}
+
+p {margin-bottom: 1em;}
+
+body {
+    font-size: 12pt;
+}
+
+h2 {
+    font-size: 30pt;
+}
+
+h3 {
+    font-size: 15pt;
+    font-style: italic;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: light;
+    font-size: 40pt;
+    color: var(--color-accent);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: space-between;*/
+    padding: 12px 16px;
+    border-bottom: 1px solid #e6e6e6
+}
+
+[role="tablist"] {
+    display: flex;
+    gap: 12px
+}
+
+[role="tab"] {
+    list-style: none;
+    background: none;
+    /*lightblue;*/
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer
+}
+
+[role="tab"][aria-selected="true"] {
+    font-weight: 600;
+    color: var(--color-focused);
+    /*border-bottom: 2px solid #111*/
+}
+
+/* container to stack panels */
+main#main-content {
+    position: relative;
+    background:blue;
+    display: flex;
+    justify-content: center;
+}
+
+#center-column {
+    position:relative;
+    width:900px;
+    background: yellow;
+}
+
+/* stacked panels */
+.panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    inset: 0 0 0 0;
+    padding: 24px;
+    background:rgba(0, 128, 0, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--dur) ease;
+    will-change: opacity, visibility;
+}
+
+/* active panel shown on top */
+.panel.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* reduced motion: make panels static and visible */
+@media (prefers-reduced-motion: reduce) {
+    .panel {
+        position: static;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        transition: none !important;
+    }
+
+    main#main-content {
+        min-height: auto;
+    }
+}

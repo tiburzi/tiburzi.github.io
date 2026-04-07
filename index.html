@@ -1,8 +1,54 @@
-<html>
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website title</title>
+  <base target="_blank">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
 <body>
-  <h1>Website Title</h1>
-  <p>Welcome to my website!</p>
-</body>
 
+<header class="site-header">
+  <h1>Jon Tiburzi</h1>
+  <nav role="navigation" aria-label="Main">
+    <div role="tablist" aria-label="Site sections">
+      <li role="tab" aria-selected="true" aria-controls="home" id="tab-portfolio">portfolio</li>
+      <li role="tab" aria-selected="false" aria-controls="about" id="tab-about">about</li>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <div id="center-column">
+    <!-- portfolio -->
+    <section id="home" class="panel" role="tabpanel" aria-labelledby="tab-home">
+      <h2>Alea's Island</h2>
+      <h3>Meet Alea, a little musician adrift in an ocean of sound.</h3>
+      <my-slideshow>
+        <img src="./images/aleas_island_05.png" alt="">
+        <img src="./images/aleas_island_01.png" alt="">
+        <img src="./images/aleas_island_02.png" alt="">
+        <img src="./images/aleas_island_04.png" alt="">
+        <img src="./images/aleas_island_03.png" alt="">
+      </my-slideshow>
+      <p>Explore islands filled with musical puzzles and creatures. Master your instrument and learn how it communicates with your environment. Meditate in lush landscapes, immersed in an evolving procedurally-generated soundtrack.</p>
+      <p>Alea's Island was an eight-month collaboration with musician <a href="http://terranemusic.com">Terrane</a>. In spring 2017, the game was exhibited in two art galleries — <a href="http://publicfunctionary.org/">Public Functionary</a> (Minneapolis, MN) and <a href="http://northfieldartsguild.org/">The Northfield Arts Guild</a> (Northfield, MN).</p>
+    </section>
+
+    <!-- about me -->
+    <section id="about" class="panel" role="tabpanel" aria-labelledby="tab-about">about me
+    </section>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script type="module">
+  import './components/slideshow.js';
+</script>
+</body>
 </html>
