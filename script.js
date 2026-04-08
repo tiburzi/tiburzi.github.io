@@ -1,13 +1,13 @@
 (() => {
   const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-  const panels = Array.from(document.querySelectorAll('.panel'));
+  const tabpanels = Array.from(document.querySelectorAll('.tabpanel'));
 
   function activate(targetId, setFocus = true) {
     const target = document.getElementById(targetId);
     if (!target) return;
 
     // guard: ensure panels exist
-    const current = panels.find(p => p.classList.contains('active'));
+    const current = tabpanels.find(p => p.classList.contains('active'));
 
     if (current === target) return;
 
@@ -35,8 +35,8 @@
   }
 
   // init: mark first panel active
-  panels.forEach(p => p.classList.remove('active'));
-  (panels[0] || null)?.classList.add('active');
+  tabpanels.forEach(p => p.classList.remove('active'));
+  (tabpanels[0] || null)?.classList.add('active');
 
   // wire tabs
   tabs.forEach(tab => {

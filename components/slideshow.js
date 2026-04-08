@@ -2,8 +2,8 @@ const slideshowTemplate = document.createElement('template');
 slideshowTemplate.innerHTML = `
   <style>
     .slideshow{
-      --w:800px;
-      --h:500px;
+      --w:720px;
+      --h:420px;
       --corner-radius:10px;
       --dot-size:10px;
       --dot-selected-scale:1.5;
@@ -18,13 +18,13 @@ slideshowTemplate.innerHTML = `
     .slideshow{
       width:var(--w);
       max-width:100%;
+      height:var(--custom_height, var(--h));
+      max-height:60vh;
       position:relative;
       user-select:none;
       overflow:visible;
       border-radius:var(--corner-radius);
       background:transparent;
-      height:var(--h);
-      max-height:60vh;
       margin:20px 0px 70px 0px;
     }
 
@@ -67,7 +67,7 @@ slideshowTemplate.innerHTML = `
       left:0;
       right:0;
       top:100%;                 /* immediately below the viewport */
-      margin-top:20px;          /* gap between viewport and dots */
+      margin-top:30px;          /* gap between viewport and dots */
       display:flex;
       justify-content:center;
       gap:22px;
