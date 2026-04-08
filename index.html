@@ -28,10 +28,62 @@
     <!-- portfolio -->
     <section id="home" class="tabpanel" role="tabpanel" aria-labelledby="tab-home">
       
+      <!-- Principles -->
+      <div>
+        <h2>My principles</h2>
+        <p>Reflecting on what I value helps me live more mindfully. Distilling these thoughts into 'guiding principles' can nurture a deeper understanding of personal truths. I also think that sharing and discussing principles is an insightful way to get to know someone! Here are mine; what are yours?</p>
+        <div id="principle-container" style="display:flex; flex-wrap:wrap;"></div>
+      </div>
+      
+      <!-- Procedurally populate the principles page -->
+      <template id="principle-template">
+        <div class="principle-card">
+          <img class="principle-bird" src="" alt="">
+          <h3 class="principle-title">[Title]</h3>
+          <p class="principle-desc">[description]</p>
+        </div>
+      </template>
+
+      <script>
+        const principles = [
+          {title:'Time is Valuable',    desc:'Spend your time such that you wish you had more.',                            image:'./images/bird01-cardinal.png',    altText:'cardinal'},
+          {title:'Hidden Joy',          desc:'There is beauty in the small, and joy in the unexpected.',                    image:'./images/bird04-chickadee.png',   altText:'chickadee'},
+          {title:'Explore the Unknown', desc:'Wander without fear of getting lost.',                                        image:'./images/bird10-quetzal.png',     altText:'quetzal'},
+          {title:'Simplicity',          desc:'Strive for simplicity through organization, consideration, and reduction.',   image:'./images/bird09-dove.png',        altText:'dove'},
+          {title:'Wabi-Sabi',           desc:'Savor the asymmetric balance and natural beauty of imperfection.',            image:'./images/bird07-partidge.png',    altText:'partidge'},
+          {title:'Be Purposeful',       desc:'No one sees every detail, but every detail is seen.',                         image:'./images/bird12-hummingbird.png', altText:'hummingbird'},
+          {title:'Be Appreciative',     desc:"Appreciate when people do things for you, especially if you don't see it.",   image:'./images/bird05-jay.png',         altText:'blue jay'},
+          {title:'Self Development',    desc:'Strive to be self-sufficient, but learn from those more experienced.',        image:'./images/bird03-goldfinch.png',   altText:'goldfinch'},
+          {title:"Learn from Failure",  desc:"Failing to succeed does not mean failing to progress.",                       image:'./images/bird06-waxwing.png',     altText:'cedar waxwing'},
+          {title:"Dream",               desc:"Dreams inspire actions that create new memories.",                            image:'./images/bird11-titmouse.png',    altText:'tufted titmouse'},
+          {title:"Optimistic Nihilism", desc:"We are free to create our own meaning in a brilliant but meaningless universe.",image:'./images/bird08-oriole.png',    altText:'oriole'},
+          {title:"Enjoy the Present",   desc:"The end may come before you are ready to get there.",                         image:'./images/bird02-woodpecker.png',  altText:'ivory-billed woodpecker'},
+        ];
+
+        const template = document.getElementById('principle-template');
+        const container = document.getElementById('principle-container');
+        
+        principles.forEach(p => {
+          const clone = template.content.cloneNode(true);
+
+          clone.querySelector('.principle-bird').src = p.image;
+          clone.querySelector('.principle-bird').alt = p.altText;
+          clone.querySelector('.principle-title').textContent = p.title;
+          clone.querySelector('.principle-desc').textContent = p.desc;
+
+          container.appendChild(clone);
+        });
+
+        container.firstElementChild.style.width = "100%";
+        container.lastElementChild.style.width = "100%";
+        
+      </script>
+      
+
       <!-- Alea's Island -->
       <section id="aleas-island" class="panel">
         <h2>Alea's Island</h2>
-        <h3>Meet Alea, a little musician adrift in an ocean of sound.</h3>
+        <h4>Meet Alea, a little musician adrift in an ocean of sound.</h4>
         <my-slideshow>
           <img src="./images/aleas_island_05.png" alt="">
           <img src="./images/aleas_island_01.png" alt="">
@@ -47,7 +99,7 @@
       <!-- Hikari's Station -->
       <section id="hikaris-station" class="panel">
         <h2>Hikari's Station</h2>
-        <h3>Make new friends on a train ride across Tokyo.</h3>
+        <h4>Make new friends on a train ride across Tokyo.</h4>
         <my-slideshow style="--custom_height:280px;">
           <img src="./images/hikaris_station_01.png" alt="">
           <img src="./images/hikaris_station_03.png" alt="">
@@ -66,7 +118,7 @@
       <!-- Alea's Garden -->
       <section id="aleas-garden" class="panel">
         <h2>Alea's Garden</h2>
-        <h3>Things aren’t beautiful because they last forever.</h3>
+        <h4>Things aren’t beautiful because they last forever.</h4>
         <my-slideshow>
           <img src="./images/alea's_garden_01.png" alt="">
           <img src="./images/alea's_garden_02.png" alt="">
@@ -75,7 +127,7 @@
           <img src="./images/alea's_garden_05.png" alt="">
         </my-slideshow>
         <p>Alea’s Garden is a cosy polyomino deckbuilding card game. Balance beauty and decay within your garden in this pocketsized card game for one player. Free to print-and-play!</p>
-        <p>Game design by Brave James. I made the art and assisted with development. Our game won the 2025 BoardGameGeek Solitaire competition!</p>
+        <p>Game design by Brave James. I made the art and assisted (lightly) with development. Our game won the 2025 BoardGameGeek Solitaire competition!</p>
 
         <div class="link-list">
           <a class="standalone-link" href="https://boardgamegeek.com/thread/3530593/aleas-garden-cosy-polyomino-deckbuilding-game-winn">view on BoardGameGeek</a>
@@ -85,7 +137,7 @@
       <!-- Isle of Eden -->
       <section id="isle-of-eden" class="panel">
         <h2>Isle of Eden</h2>
-        <h3>Don't rush yourself — the end may arrive before you are ready to get there.</h3>
+        <h4>Don't rush yourself — the end may arrive before you are ready to get there.</h4>
         <my-slideshow>
           <img src="./images/isle_of_eden_16.png" alt="">
           <img src="./images/isle_of_eden_15.png" alt="">
@@ -106,7 +158,7 @@
       <!-- Hiiro -->
        <section id="hiiro" class="panel">
           <h2>Hiiro</h2>
-          <h3>Solve puzzles, discover secrets, experience dreamy solitude.</h3>
+          <h4>Solve puzzles, discover secrets, experience dreamy solitude.</h4>
           <my-slideshow>
             <img src="./images/hiiro_01.png" alt="">
             <img src="./images/hiiro_02.png" alt="">
@@ -144,7 +196,7 @@
 
        <!-- Other projects -->
        <section id="other-projects" class="panel">
-          <h3>Other projects</h3>
+          <h4>Other projects</h4>
           <p><a href="https://boardgamegeek.com/thread/3312613/wip-taking-space-54-card-starcharting-pattern-layi">Taking Space</a> &mdash; Chart out patterns in the night sky in this pattern-laying card game for one player.</p>
           <p><a href="https://jontiburzi.itch.io/nightwalk">Nightwalk</a> &mdash; Go on a quiet night adventure to find a very special someone.</p>
           <p><a href="https://jontiburzi.itch.io/snowday">Snowday</a> &mdash; A gentle game about playing in a fresh snowfall.</p>
@@ -155,6 +207,9 @@
 
     <!-- about me -->
     <section id="about" class="tabpanel" role="tabpanel" aria-labelledby="tab-about">about me
+      <section id="principles">
+        
+      </section>
     </section>
   </div>
 </main>

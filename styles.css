@@ -4,7 +4,8 @@
     --color-accent-soft: #dd6975;
     --color-bg: #f2f2f2;
     --color-base: #ccc;
-    --color-text: #9c9c9c;
+    --color-text-header: #9c9c9c;
+    --color-text-body: #707070;
     --color-focused: #221616;
 }
 
@@ -19,30 +20,25 @@
     --duration: 450ms;
 }
 
-body,
-h2,
-h3 {
+body, h2, h3, h4 {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 300;
     line-height: 1.5;
-    color: var(--color-text);
+    color: var(--color-text-header);
     margin: 0;
 }
 
-p {margin-bottom: 1em;}
-
 body {
     font-size: 12pt;
+    color: var(--color-text-body);
 }
+h2 {font-size: 30pt;}
+h3 {font-size: 22pt;}
 
-h2 {
-    font-size: 30pt;
-}
-
-h3 {
-    font-size: 15pt;
+h4 {
+    font-size: 14pt;
     font-style: italic;
 }
 
@@ -51,6 +47,10 @@ h1 {
     font-weight: light;
     font-size: 40pt;
     color: var(--color-accent);
+}
+
+p {
+    margin: 0 0 1em 0;
 }
 
 a {
@@ -142,6 +142,19 @@ main#main-content {
 .link-list{
     display:flex;
     gap: 30px;
+}
+
+.principle-card {
+    border: 0px solid grey;
+    text-align: center;
+    text-wrap: true;
+    width: 40%;
+    flex-grow: 1;
+    margin: 30px;
+}
+.principle-bird {
+    max-width: 80px;
+    aspect-ratio: 1/1;
 }
 
 /* reduced motion: make panels static and visible 
