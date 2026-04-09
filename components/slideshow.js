@@ -3,7 +3,7 @@ slideshowTemplate.innerHTML = `
   <style>
     .slideshow{
       --w:720px;
-      --h:420px;
+      --h:405px;
       --corner-radius:10px;
       --dot-size:10px;
       --dot-selected-scale:1.7;
@@ -19,7 +19,7 @@ slideshowTemplate.innerHTML = `
       width:var(--w);
       max-width:100%;
       height:var(--custom_height, var(--h));
-      max-height:60vh;
+      max-height:70vh;
       position:relative;
       user-select:none;
       overflow:visible;
@@ -43,21 +43,22 @@ slideshowTemplate.innerHTML = `
       height:100%;
     }
 
-    .slides img{
+    .slides img, .slides iframe {
       position:absolute;
       inset:0;
+      top: 0;
+      left: 0;
       width:100%;
       height:100%;
       object-fit:cover;
       opacity:0;
-      //transform:scale(1.02);
-      transition:opacity var(--duration) ease, transform calc(var(--duration) * 1.05) ease;
+      transition:opacity var(--duration) ease;
       pointer-events:none;
     }
+    .slides iframe.is-active { pointer-events: auto; }
 
-    .slides img.is-active{
+    .slides *.is-active{
       opacity:1;
-      //transform:scale(1);
       z-index:2;
     }
 
@@ -125,7 +126,6 @@ slideshowTemplate.innerHTML = `
     .nav.left{ left:0; }
     .nav.right{ right:0; transform: rotate(180deg);}
     .nav svg{width:22px;height:22px;pointer-events:none}
-    //.nav:active{transform:translateY(0) scale(.98)}
 
     /* Small accessible hit targets on mobile */
     @media (max-width:420px){
@@ -174,12 +174,10 @@ class Slideshow extends HTMLElement {
     const nextBtn = this.shadowRoot.getElementById('next');
     
     //Append all children img as slides
-    const childs = Array.from(this.querySelectorAll('img'));
-    childs.forEach((child) => {
-      slidesEl.appendChild(child);
-    });
-
-    const imgs = Array.from(slidesEl.querySelectorAll('img'));
+    const childs = Array.from(this.querySelectorAll('img, iframe'));
+    childs.forEach((child) => { slidesEl.appendChild(child); });
+    
+    const imgs = Array.from(slidesEl.querySelectorAll('img, iframe'));
     let current = 0;
 
     if (imgs.length === 0) return;
@@ -208,6 +206,7 @@ class Slideshow extends HTMLElement {
     const dotNodes = Array.from(dotsEl.children);
 
     function update() {
+      // set active slide
       imgs.forEach((img, i) => {
         if (i === current) {
           img.classList.add('is-active');
@@ -218,6 +217,15 @@ class Slideshow extends HTMLElement {
         }
       });
       dotNodes.forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
+
+      // hide prev and next buttons for interactable iframes (videos)
+      if (imgs[current].nodeName.toLowerCase() === 'iframe') {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      }
     }
 
     function goTo(index) {
