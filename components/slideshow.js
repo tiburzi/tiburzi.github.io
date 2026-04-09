@@ -25,7 +25,7 @@ slideshowTemplate.innerHTML = `
       overflow:visible;
       border-radius:var(--corner-radius);
       background:transparent;
-      margin:20px 0px 70px 0px;
+      margin:0px 0px 70px 0px;
     }
 
     .viewport{

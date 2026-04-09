@@ -10,7 +10,10 @@
     --corner-radius: 10px;
 }
 
-body, h2, h3, h4 {
+body,
+h2,
+h3,
+h4 {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -24,12 +27,19 @@ body {
     font-size: 12pt;
     color: var(--color-text-body);
 }
-h2 {font-size: 30pt;}
-h3 {font-size: 22pt;}
+
+h2 {
+    font-size: 30pt;
+}
+
+h3 {
+    font-size: 22pt;
+}
 
 h4 {
     font-size: 14pt;
     font-style: italic;
+    margin: 0 0 1em 0;
 }
 
 h1 {
@@ -96,19 +106,18 @@ main#main-content {
 }
 
 #center-column {
-    width:850px;
+    width: 850px;
     /*background: yellow;*/
 }
 
 /* stacked panels */
 .tabpanel {
-    display:flex;
-    flex-direction: column;
-    gap: 100px;
-    /*inset: 0 0 0 0;*/
     padding: 0px;
+
+    display: none;
     opacity: 0;
-    visibility: hidden;
+    transition: opacity var(--dur) ease, display var(--dur) ease allow-discrete;
+    
     pointer-events: none;
     transition: opacity var(--dur) ease;
     will-change: opacity, visibility;
@@ -116,9 +125,16 @@ main#main-content {
 
 /* active panel shown on top */
 .tabpanel.active {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
     opacity: 1;
-    visibility: visible;
     pointer-events: auto;
+}
+@starting-style {
+    .tabpanel {
+        opacity: 0; /* Start from opacity 0 */
+    }
 }
 
 .panel {
@@ -127,6 +143,7 @@ main#main-content {
     align-items: center;
     /*background: green;*/
 }
+
 .panel>p {
     width: 100%;
 }
@@ -134,8 +151,9 @@ main#main-content {
 .standalone-link {
     padding: 5px 10px;
 }
-.link-list{
-    display:flex;
+
+.link-list {
+    display: flex;
     gap: 30px;
 }
 
@@ -147,9 +165,44 @@ main#main-content {
     flex-grow: 1;
     margin: 30px;
 }
+
 .principle-bird {
     max-width: 80px;
     aspect-ratio: 1/1;
+}
+
+.quote-container {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0px;
+}
+
+.quote-card {
+    flex: 1 1 400px;
+    min-width: 100px;
+    max-width: max-content;
+    box-sizing: border-box;
+
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    text-align: left;
+}
+
+.quote-card, .quote-card>* {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    box-sizing: border-box;
+    white-space: normal;
+}
+
+.quote-text {
+    font-style: italic;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
 }
 
 /* reduced motion: make panels static and visible 
@@ -166,4 +219,3 @@ main#main-content {
         min-height: auto;
     }
 }*/
-

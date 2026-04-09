@@ -28,70 +28,6 @@
     <!-- portfolio -->
     <section id="home" class="tabpanel" role="tabpanel" aria-labelledby="tab-home">
       
-      <!-- About me -->
-      <div style="display:flex; flex-wrap: wrap; gap:50px; justify-content:center;">
-        <div style="flex-basis: 400px; flex-grow: 2;">
-          <h2>Hello there!</h2>
-          <h4>I am a designer, a thinker, a dreamer.</h4>
-          <p>Often, my ideas manifest themselves in video games which tend towards the subtle, the unspoken, and the magical.</p>
-          <p>I also enjoy teaching and learning. I firmly believe that curiosity will take you extraordinary places and deepen your understanding if you take the time to foster it. In this spirit, I am proud to be a Wikipedia editor.</p>
-          <p>Feel free to say hello at <a href='mailto:jontiburzi@gmail.com'>jontiburzi@gmail.com</a></p>
-        </div>
-        <img class="basic-img" src="./images/music_beneath_cherry.png" alt="pixel art creature playing a guiter beneath a purple tree">
-      </div>
-      
-      <!-- Principles -->
-      <div>
-        <h2>My principles</h2>
-        <p>Reflecting on what I value helps me live more mindfully. Distilling these thoughts into 'guiding principles' can nurture a deeper understanding of personal truths. I also think that sharing and discussing principles is an insightful way to get to know someone! Here are mine; what are yours?</p>
-        <div id="principle-container" style="display:flex; flex-wrap:wrap;"></div>
-      </div>
-      
-      <!-- Procedurally populate the principles page -->
-      <template id="principle-template">
-        <div class="principle-card">
-          <img class="principle-bird" src="" alt="">
-          <h3 class="principle-title">[Title]</h3>
-          <p class="principle-desc">[description]</p>
-        </div>
-      </template>
-
-      <script>
-        const principles = [
-          {title:'Time is Valuable',    desc:'Spend your time such that you wish you had more.',                            image:'./images/bird01-cardinal.png',    altText:'cardinal'},
-          {title:'Hidden Joy',          desc:'There is beauty in the small, and joy in the unexpected.',                    image:'./images/bird04-chickadee.png',   altText:'chickadee'},
-          {title:'Explore the Unknown', desc:'Wander without fear of getting lost.',                                        image:'./images/bird10-quetzal.png',     altText:'quetzal'},
-          {title:'Simplicity',          desc:'Strive for simplicity through organization, consideration, and reduction.',   image:'./images/bird09-dove.png',        altText:'dove'},
-          {title:'Wabi-Sabi',           desc:'Savor the asymmetric balance and natural beauty of imperfection.',            image:'./images/bird07-partidge.png',    altText:'partidge'},
-          {title:'Be Purposeful',       desc:'No one sees every detail, but every detail is seen.',                         image:'./images/bird12-hummingbird.png', altText:'hummingbird'},
-          {title:'Be Appreciative',     desc:"Appreciate when people do things for you, especially if you don't see it.",   image:'./images/bird05-jay.png',         altText:'blue jay'},
-          {title:'Self Development',    desc:'Strive to be self-sufficient, but learn from those more experienced.',        image:'./images/bird03-goldfinch.png',   altText:'goldfinch'},
-          {title:"Learn from Failure",  desc:"Failing to succeed does not mean failing to progress.",                       image:'./images/bird06-waxwing.png',     altText:'cedar waxwing'},
-          {title:"Dream",               desc:"Dreams inspire actions that create new memories.",                            image:'./images/bird11-titmouse.png',    altText:'tufted titmouse'},
-          {title:"Optimistic Nihilism", desc:"We are free to create our own meaning in a brilliant but meaningless universe.",image:'./images/bird08-oriole.png',    altText:'oriole'},
-          {title:"Enjoy the Present",   desc:"The end may come before you are ready to get there.",                         image:'./images/bird02-woodpecker.png',  altText:'ivory-billed woodpecker'},
-        ];
-
-        const template = document.getElementById('principle-template');
-        const container = document.getElementById('principle-container');
-        
-        principles.forEach(p => {
-          const clone = template.content.cloneNode(true);
-
-          clone.querySelector('.principle-bird').src = p.image;
-          clone.querySelector('.principle-bird').alt = p.altText;
-          clone.querySelector('.principle-title').textContent = p.title;
-          clone.querySelector('.principle-desc').textContent = p.desc;
-
-          container.appendChild(clone);
-        });
-
-        container.firstElementChild.style.width = "100%";
-        container.lastElementChild.style.width = "100%";
-        
-      </script>
-      
-
       <!-- Alea's Island -->
       <section id="aleas-island" class="panel">
         <h2>Alea's Island</h2>
@@ -127,6 +63,25 @@
         </div>
       </section>
 
+      <!-- Alea's Garden -->
+      <section id="aleas-garden" class="panel">
+        <h2>Alea's Garden</h2>
+        <h4>Things aren’t beautiful because they last forever.</h4>
+        <my-slideshow>
+          <img src="./images/alea's_garden_01.png" alt="">
+          <img src="./images/alea's_garden_02.png" alt="">
+          <img src="./images/alea's_garden_03.png" alt="">
+          <img src="./images/alea's_garden_04.png" alt="">
+          <img src="./images/alea's_garden_05.png" alt="">
+        </my-slideshow>
+        <p>Alea’s Garden is a cosy polyomino deckbuilding card game. Balance beauty and decay within your garden in this pocketsized card game for one player. Free to print-and-play!</p>
+        <p>Game design by Brave James. I made the art and assisted (lightly) with development. Our game won the 2025 BoardGameGeek Solitaire competition!</p>
+
+        <div class="link-list">
+          <a class="standalone-link" href="https://boardgamegeek.com/thread/3530593/aleas-garden-cosy-polyomino-deckbuilding-game-winn">view on BoardGameGeek</a>
+        </div>
+      </section>
+      
       <!-- Cync -->
       <section id="cync" class="panel">
         <h2>cync</h2>
@@ -144,25 +99,6 @@
         
         <div class="link-list">
           <a class="standalone-link" href="https://cync.app/">run in browser</a>
-        </div>
-      </section>
-
-      <!-- Alea's Garden -->
-      <section id="aleas-garden" class="panel">
-        <h2>Alea's Garden</h2>
-        <h4>Things aren’t beautiful because they last forever.</h4>
-        <my-slideshow>
-          <img src="./images/alea's_garden_01.png" alt="">
-          <img src="./images/alea's_garden_02.png" alt="">
-          <img src="./images/alea's_garden_03.png" alt="">
-          <img src="./images/alea's_garden_04.png" alt="">
-          <img src="./images/alea's_garden_05.png" alt="">
-        </my-slideshow>
-        <p>Alea’s Garden is a cosy polyomino deckbuilding card game. Balance beauty and decay within your garden in this pocketsized card game for one player. Free to print-and-play!</p>
-        <p>Game design by Brave James. I made the art and assisted (lightly) with development. Our game won the 2025 BoardGameGeek Solitaire competition!</p>
-
-        <div class="link-list">
-          <a class="standalone-link" href="https://boardgamegeek.com/thread/3530593/aleas-garden-cosy-polyomino-deckbuilding-game-winn">view on BoardGameGeek</a>
         </div>
       </section>
 
@@ -206,29 +142,33 @@
             <a class="standalone-link" href="http://jontiburzi.itch.io/hiiro">download on Itch.io</a>
             <a class="standalone-link" href="http://jontiburzi.bandcamp.com/album/hiiro-original-soundtrack">soundtrack</a>
           </div>
-          <div style="display:flex; flex-wrap: wrap; gap: 10px; margin: 30px 0px;">
-            <quote-card href="http://indiegamereviewer.com/hiiro-review/">
-              <span slot="text">A small, quiet life of wonders — 4.5 / 5</span>
-              <span slot="author">indiegamereviewer.com</span>
-            </quote-card>
-            <quote-card href="http://www.equilateral.es/2015/11/tu-el-mundo-y-hiiro/">
-              <span slot="text">The music, the world, the calm ... it's like being late but without haste.</span>
-              <span slot="author">equilateral.es</span>
-            </quote-card>
-            <quote-card href="http://steamcommunity.com/id/Fun1kCZ/recommended/464960/">
-              <span slot="text">If Fez and Knytt had a baby, this could be it.</span>
-              <span slot="author">Steam player LETAX CZ</span>
-            </quote-card>
-            <quote-card href="https://launchpartygaming.com/reviews/pc-reviews/2016/hiiro-review/">
-              <span slot="text">Hiiro is something that can just put your mind at ease — 9.5 / 10</span>
-              <span slot="author">Launch Party Gaming</span>
-            </quote-card>
+          <!--<div class="quote-container">
+            <div class='quote-card'><p>A small, quiet life of wonders — 4.5 / 5</p></div>
+            <div class='quote-card'><p>The music, the world, the calm ... it's like being late but without haste. The music, the world, the calm ... it's like being late but without haste.</p></div>
+          </div>-->
+          <div class="quote-container">
+            <div class='quote-card'>
+              <p class="quote-text">A small, quiet life of wonders — 4.5 / 5</p>
+              <a class="quote-author" href="http://indiegamereviewer.com/hiiro-review/">indiegamereviewer.com</a>
+            </div>
+            <div class='quote-card'>
+              <p class="quote-text">The music, the world, the calm ... it's like being late but without haste.</p>
+              <a class="quote-author" href="http://www.equilateral.es/2015/11/tu-el-mundo-y-hiiro/">equilateral.es</a>
+            </div>
+            <div class='quote-card'>
+              <p class="quote-text">If Fez and Knytt had a baby, this could be it.</p>
+              <a class="quote-author" href="http://steamcommunity.com/id/Fun1kCZ/recommended/464960/">Steam player LETAX CZ</a>
+            </div>
+            <div class='quote-card'>
+              <p class="quote-text">Hiiro is something that can just put your mind at ease — 9.5 / 10</p>
+              <a class="quote-author" href="https://launchpartygaming.com/reviews/pc-reviews/2016/hiiro-review/">Launch Party Gaming</a>
+            </div>
           </div>
        </section>
 
        <!-- Other projects -->
        <section id="other-projects" class="panel">
-          <h4>Other projects</h4>
+          <h3>Other projects</h3>
           <p><a href="https://boardgamegeek.com/thread/3312613/wip-taking-space-54-card-starcharting-pattern-layi">Taking Space</a> &mdash; Chart out patterns in the night sky in this pattern-laying card game for one player.</p>
           <p><a href="https://jontiburzi.itch.io/nightwalk">Nightwalk</a> &mdash; Go on a quiet night adventure to find a very special someone.</p>
           <p><a href="https://jontiburzi.itch.io/snowday">Snowday</a> &mdash; A gentle game about playing in a fresh snowfall.</p>
@@ -237,11 +177,74 @@
 
     </section>
 
-    <!-- about me -->
-    <section id="about" class="tabpanel" role="tabpanel" aria-labelledby="tab-about">about me
-      <section id="principles">
-        
+    <!-- About me -->
+    <section id="about" class="tabpanel" role="tabpanel" aria-labelledby="tab-about">
+      
+      <!-- About me -->
+      <section id="about-me" style="display:flex; flex-wrap: wrap; gap:50px; justify-content:center;">
+        <div style="flex-basis: 400px; flex-grow: 2;">
+          <h2>Hello there!</h2>
+          <h4>I am a designer, a thinker, a dreamer.</h4>
+          <p>Often, my ideas manifest themselves in video games which tend towards the subtle, the unspoken, and the magical.</p>
+          <p>I also enjoy teaching and learning. I firmly believe that curiosity will take you extraordinary places and deepen your understanding if you take the time to foster it. In this spirit, I am proud to be a Wikipedia editor.</p>
+          <p>Feel free to say hello at <a href='mailto:jontiburzi@gmail.com'>jontiburzi@gmail.com</a></p>
+        </div>
+        <img class="basic-img" src="./images/music_beneath_cherry.png" alt="pixel art creature playing a guiter beneath a purple tree">
       </section>
+      
+      <!-- Principles -->
+      <section id="principles">
+        <div>
+          <h2>My principles</h2>
+          <p>Reflecting on what I value helps me live more mindfully. Distilling these thoughts into 'guiding principles' can nurture a deeper understanding of personal truths. I also think that sharing and discussing principles is an insightful way to get to know someone! Here are mine; what are yours?</p>
+          <div id="principle-container" style="display:flex; flex-wrap:wrap;"></div>
+        </div>
+        
+        <!-- Procedurally populate the principles page -->
+        <template id="principle-template">
+          <div class="principle-card">
+            <img class="principle-bird" src="" alt="">
+            <h3 class="principle-title">[Title]</h3>
+            <p class="principle-desc">[description]</p>
+          </div>
+        </template>
+
+        <script>
+          const principles = [
+            {title:'Time is Valuable',    desc:'Spend your time such that you wish you had more.',                            image:'./images/bird01-cardinal.png',    altText:'cardinal'},
+            {title:'Hidden Joy',          desc:'There is beauty in the small, and joy in the unexpected.',                    image:'./images/bird04-chickadee.png',   altText:'chickadee'},
+            {title:'Explore the Unknown', desc:'Wander without fear of getting lost.',                                        image:'./images/bird10-quetzal.png',     altText:'quetzal'},
+            {title:'Simplicity',          desc:'Strive for simplicity through organization, consideration, and reduction.',   image:'./images/bird09-dove.png',        altText:'dove'},
+            {title:'Wabi-Sabi',           desc:'Savor the asymmetric balance and natural beauty of imperfection.',            image:'./images/bird07-partidge.png',    altText:'partidge'},
+            {title:'Be Purposeful',       desc:'No one sees every detail, but every detail is seen.',                         image:'./images/bird12-hummingbird.png', altText:'hummingbird'},
+            {title:'Be Appreciative',     desc:"Appreciate when people do things for you, especially if you don't see it.",   image:'./images/bird05-jay.png',         altText:'blue jay'},
+            {title:'Self Development',    desc:'Strive to be self-sufficient, but learn from those more experienced.',        image:'./images/bird03-goldfinch.png',   altText:'goldfinch'},
+            {title:"Learn from Failure",  desc:"Failing to succeed does not mean failing to progress.",                       image:'./images/bird06-waxwing.png',     altText:'cedar waxwing'},
+            {title:"Dream",               desc:"Dreams inspire actions that create new memories.",                            image:'./images/bird11-titmouse.png',    altText:'tufted titmouse'},
+            {title:"Optimistic Nihilism", desc:"We are free to create our own meaning in a brilliant but meaningless universe.",image:'./images/bird08-oriole.png',    altText:'oriole'},
+            {title:"Enjoy the Present",   desc:"The end may come before you are ready to get there.",                         image:'./images/bird02-woodpecker.png',  altText:'ivory-billed woodpecker'},
+          ];
+
+          const template = document.getElementById('principle-template');
+          const container = document.getElementById('principle-container');
+          
+          principles.forEach(p => {
+            const clone = template.content.cloneNode(true);
+
+            clone.querySelector('.principle-bird').src = p.image;
+            clone.querySelector('.principle-bird').alt = p.altText;
+            clone.querySelector('.principle-title').textContent = p.title;
+            clone.querySelector('.principle-desc').textContent = p.desc;
+
+            container.appendChild(clone);
+          });
+
+          container.firstElementChild.style.width = "100%";
+          container.lastElementChild.style.width = "100%";
+          
+        </script>
+      </section>
+
     </section>
   </div>
 </main>
@@ -249,7 +252,7 @@
 <script src="script.js"></script>
 <script type="module">
   import './components/slideshow.js';
-  import './components/quote-card.js';
+  //import './components/quote-card.js';
 </script>
 </body>
 </html>
