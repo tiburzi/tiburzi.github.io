@@ -1,6 +1,6 @@
 :root {
-    --color-accent: #d60015;
-    --color-accent-soft: #dd6975;
+    --color-accent: #ee3c3c; /* #d60015 */
+    --color-accent-soft: #ee3c3c;
     --color-bg: #f2f2f2;
     --color-base: #ccc;
     --color-text-header: #9c9c9c;
@@ -59,8 +59,9 @@ p {
 }
 
 a {
-    color: var(--color-accent);
+    color: var(--color-accent-soft);
     text-decoration: none;
+    font-weight: 500;
 }
 
 a:hover {
