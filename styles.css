@@ -212,7 +212,7 @@ main#main-content {
     max-width: max-content;
     box-sizing: border-box;
 
-    background: #fff;
+    background: hsl(0, 0%, 99%);
     border: 1px solid #e6e6e6;
     border-radius: 10px;
     padding: 10px 20px;
