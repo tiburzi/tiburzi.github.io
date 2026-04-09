@@ -6,7 +6,7 @@ slideshowTemplate.innerHTML = `
       --h:420px;
       --corner-radius:10px;
       --dot-size:10px;
-      --dot-selected-scale:1.5;
+      --dot-selected-scale:1.7;
       --dot-color:var(--color-accent-soft);
       --dot-bg:var(--color-base);
       --duration:600ms;
@@ -70,7 +70,7 @@ slideshowTemplate.innerHTML = `
       margin-top:30px;          /* gap between viewport and dots */
       display:flex;
       justify-content:center;
-      gap:22px;
+      gap:24px;
       padding:0;
       z-index:999;              /* above images */
       pointer-events:auto;

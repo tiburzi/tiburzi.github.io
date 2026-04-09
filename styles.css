@@ -10,17 +10,6 @@
     --corner-radius: 10px;
 }
 
-:root {
-    --w: 640px;
-    --h: 360px;
-    --dot-size: 12px;
-    --dot-selected-scale: 1.5;
-    /* 50% larger */
-    --dot-color: #ff6b6b;
-    --dot-bg: rgba(255, 255, 255, .35);
-    --duration: 450ms;
-}
-
 body, h2, h3, h4 {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
