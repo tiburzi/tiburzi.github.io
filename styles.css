@@ -1,5 +1,4 @@
 :root {
-    --dur: 800ms;
     --color-accent: #d60015;
     --color-accent-soft: #dd6975;
     --color-bg: #f2f2f2;
@@ -9,6 +8,8 @@
     --color-focused: #221616;
     --corner-radius: 10px;
 }
+
+/* ------------------ Site-wide styles for text, etc. -------------- */
 
 body,
 h2,
@@ -77,65 +78,76 @@ a:hover {
     border-bottom: 1px solid #e6e6e6
 }
 
+
+
+/* ----------------------- Tabs (top-level 'page-like' grouping) ------------------------ */
+:root {
+    --fade-out-duration: 250ms;
+    --fade-in-duration: 500ms;
+}
+
 [role="tablist"] {
     display: flex;
-    gap: 12px
+    gap: 10px;
 }
 
 [role="tab"] {
-    list-style: none;
-    background: none;
-    /*lightblue;*/
-    border: 0;
-    padding: 10px 20px;
-    cursor: pointer
+    color: var(--color-text-header);
+    font-size: 20pt;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 15px;
 }
 
 [role="tab"][aria-selected="true"] {
-    font-weight: 600;
     color: var(--color-focused);
-    /*border-bottom: 2px solid #111*/
 }
 
-/* container to stack tabpanels */
+/* Tabpanels are hidden using display:none and faded in/out using opacity */
+.tabpanel {
+    display: block;
+    opacity: 1;
+    transition: opacity ease;
+    will-change: opacity;
+}
+.tabpanel.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Utility classes used during transition */
+.tabpanel.fading-out {
+    opacity: 0;
+    transition-duration: var(--fade-out-duration);
+}
+.tabpanel.fading-in {
+    opacity: 0;
+    transition-duration: var(--fade-in-duration);
+}
+.tabpanel.fading-in.visible {
+    opacity: 1;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .tabpanel {
+        transition: none !important;
+    }
+}
+
+/* Tabpanel container for main content of each tab */
 main#main-content {
-    /*position: relative;*/
-    /*background:blue;*/
     display: flex;
     justify-content: center;
 }
 
 #center-column {
     width: 850px;
-    /*background: yellow;*/
 }
 
-/* stacked panels */
-.tabpanel {
-    padding: 0px;
 
-    display: none;
-    opacity: 0;
-    transition: opacity var(--dur) ease, display var(--dur) ease allow-discrete;
-    
-    pointer-events: none;
-    transition: opacity var(--dur) ease;
-    will-change: opacity, visibility;
-}
-
-/* active panel shown on top */
-.tabpanel.active {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    opacity: 1;
-    pointer-events: auto;
-}
-@starting-style {
-    .tabpanel {
-        opacity: 0; /* Start from opacity 0 */
-    }
-}
+/* ------------------ Panels and their content -------------------- */
 
 .panel {
     display: flex;
@@ -172,7 +184,7 @@ main#main-content {
 }
 
 .quote-container {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 30px 0px;
@@ -192,7 +204,8 @@ main#main-content {
     text-align: left;
 }
 
-.quote-card, .quote-card>* {
+.quote-card,
+.quote-card>* {
     overflow-wrap: anywhere;
     word-break: break-word;
     box-sizing: border-box;
@@ -204,18 +217,3 @@ main#main-content {
     margin: 0 0 10px 0;
     line-height: 1.4;
 }
-
-/* reduced motion: make panels static and visible 
-@media (prefers-reduced-motion: reduce) {
-    .tabpanel {
-        position: static;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto;
-        transition: none !important;
-    }
-
-    main#main-content {
-        min-height: auto;
-    }
-}*/
