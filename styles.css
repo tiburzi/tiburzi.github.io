@@ -106,7 +106,9 @@ a:hover {
 
 /* Tabpanels are hidden using display:none and faded in/out using opacity */
 .tabpanel {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
     opacity: 1;
     transition: opacity ease;
     will-change: opacity;
